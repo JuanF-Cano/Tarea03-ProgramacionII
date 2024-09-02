@@ -5,7 +5,7 @@
 - Autor. Ing(c): Juan Fernando Cano Duque
 - Nombre del lenguaje utilizado: C
 - Versión del lenguaje utilizado: C11
-- Nombre y versión del Sistema Operativo(S.O) sobre el que compilo y probo los ejecutables: windows 10.0.22631
+- Nombre y versión del Sistema Operativo(S.O) sobre el que compiló y probó los ejecutables: windows 10.0.22631
 - Versión del compilador utilizado: Compilado con GCC 6.3.0 (MinGW.org GCC-6.3.0-1)
 - Presentado a: Doctor Ricardo Moreno Laverde
 - Universidad Tecnológica de Pereira
@@ -14,7 +14,7 @@
 
 - Descripción del programa: Este programa recibe por pantalla el número de términos e imprime de la serie de Motzkin hasta ese número sin superarlo
 
-    Salvedad: El programa solo funciona si se le ingresan números enteros positivos y no mayores a 25, ya que si no podría haber un desbordamiento de datos por culpa del que el número superaria la capacidad del unsigned long int. De lo contrario no se garantizan resultados 
+    Salvedad: El programa solo funciona si se le ingresan números enteros positivos y no mayores a 25, ya que si no podría haber un desbordamiento de datos por culpa del que el número superaría la capacidad del unsigned long int. De lo contrario no se garantizan resultados 
     Se debe presionar enter para finalizar el programa correctamente
 */
 
@@ -30,7 +30,7 @@ unsigned long int GetFactorial(int n) {
     } // Fin condición cota
 }// Fin función GetFactorial
 
-// Escribimos el prototipo de la función para poder usar la recursividad crusada
+// Escribimos el prototipo de la función para poder usar la recursividad cruzada
 unsigned long int GetMotzkin (int term);
 
 unsigned long int SummationMotzkin(int n, int k, int accumulator) { // Función para las sumatorias
@@ -44,30 +44,30 @@ unsigned long int SummationMotzkin(int n, int k, int accumulator) { // Función 
 
 // Inicio función GetMotzkin que recibe el número del término para calcular y devolver el valor de este
 unsigned long int GetMotzkin (int term) { 
-    if (term <= 1) { //si es cero o uno, el termino será 1
+    if (term <= 1) { //si es cero o uno, el término será 1
         return 1; // Caso base para la recursividad
     } else {
         return GetMotzkin(term - 1) + SummationMotzkin(term - 2, 0, 0); // Llamado recursivo a la función
-        // Se pasa el número de termino y se inicia el acumulador y k en 0 para la función SummationMotzkin
+        // Se pasa el número de término y se inicia el acumulador y k en 0 para la función SummationMotzkin
     } // Fin condición cota
 }; // Fin función GetMotzkin
 
-// Inicio función PrintMotzkinSeries. Esta función va a imprimir la serie de Motzkin hasta el número de terminos indicado y no devuelve nada
+// Inicio función PrintMotzkinSeries. Esta función va a imprimir la serie de Motzkin hasta el número de términos indicado y no devuelve nada
 void PrintMotzkinSeries(unsigned long int n1, int term, int limit) {
-    // n1: Primer digito y digito imprimible de la serie de Motzkin
-    // term: Contiene el número del término actual, que se usará para calcular el termino a imprimir
-    // limit: Contiene el límite de terminos que fue ingresado por teclado
+    // n1: Primer dígito y dígito imprimible de la serie de Motzkin
+    // term: Contiene el número del término actual, que se usará para calcular el término a imprimir
+    // limit: Contiene el límite de términos que fue ingresado por teclado
 
-    // Imprimimos la serie de Motzkin siempre y cuando el número del termino actual sea menor al límite ingresado
+    // Imprimimos la serie de Motzkin siempre y cuando el número del término actual sea menor al límite ingresado
     if ( term < limit ) { // Condición cota de la función para el llamado recursivo
         printf("%lu", n1); // Imprimimos el número de la serie de Motzkin correspondiente, guardado en n1 
-        if ( term < limit - 1 ) { // Si no está en el último digito imprime coma ","
+        if ( term < limit - 1 ) { // Si no está en el último dígito imprime coma ","
             printf(", "); // Imprimimos coma y espacio para mantener el orden de la impresión de la serie
         } else {
-            printf(".\n"); // Imprimimos punto y salto de linea al final de la recursión para que en consola se vea más ordenado
+            printf(".\n"); // Imprimimos punto y salto de línea al final de la recursión para que en consola se vea más ordenado
         }
         PrintMotzkinSeries(GetMotzkin(term), term + 1, limit); // Llamado recursivo a la función 
-        // Damos el valor de GetMotzkin a n1 para que se imprima el valor del termino actual, sumamos 1 al termino y el limite se mantiene
+        // Damos el valor de GetMotzkin a n1 para que se imprima el valor del término actual, sumamos 1 al término y el límite se mantiene
     } // Fin de la condición cota
 
     return; // No devuelve nada y finaliza la función
@@ -80,12 +80,13 @@ int main() { // Inicio función principal
     printf("\nIngrese el n%cmero de t%crminos que desea ver de la serie de Motzkin: ", 163, 130);
     scanf("%i", &limit); // Se recibe el dato y se guarda dentro de la variable limit
 
+    printf("\n");
     // Llamado a la función que va a imprimir la serie con el primer número (1), el término siguiente (1) y el límite ingresado
     PrintMotzkinSeries(1, 1, limit + 1); 
     
     //----------------------------------------- Finalización del programa -------------------------------------------
-    getchar(); // Consumimos el caracter de nueva linea restante en el buffer
+    getchar(); // Consumimos el carácter de nueva línea restante en el buffer
     printf("\nPresione enter para continuar . . ."); // Mensaje para indicar que se presione enter para finalizar
     getchar(); // Esperar a que el usuario presione la tecla enter para que no se cierre la CLI
-    return 0; // Devuelve 0 como estandar para decir que el programa finalizó de manera correcta
+    return 0; // Devuelve 0 como estándar para decir que el programa finalizó de manera correcta
 } // Fin función principal
