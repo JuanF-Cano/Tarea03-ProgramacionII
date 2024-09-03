@@ -21,7 +21,7 @@
 #include <stdio.h>// Librería que contiene las funciones estándar para entrada y salida de datos
 
 // Inicio función GetFactorial, usada para calcular los términos de la serie de Catalán. Devuelve un entero (El factorial del número ingresado) 
-unsigned long int GetFactorial(int n) {
+unsigned long int GetFactorial(unsigned long int n) {
     if (n <= 1) { // Inicio condición cota
         return 1; // Devolvemos 1 para los valores de 0! y 1!
     } else {

@@ -30,7 +30,7 @@ int ReverseNumber(int number) {
 
     if (digits == 0) { // Cuando lleguemos al primer dígito se devuelve para finalizar
         return number; // Caso base
-    } else { 
+    } else {
         return pow(10, digits) * (number % 10) + ReverseNumber(number / 10); // Llamada recursiva a la función
         // Extraemos el número que está en las unidades con (number % 10) y le pasamos el resto del número a la nueva función
     }
@@ -40,12 +40,12 @@ int main() { // Inicio función principal
     int number = 0; // Variable que va a contener el número que se va a invertir y que se mandará como argumento a la función ReverseNumber
 
     // Pedimos al usuario que ingrese el número de términos que desea ver de la serie Triangular
-    printf("\nIngrese el n%cmero que desea invertir: ", 163);
+    printf("\nEste programa lee desde el teclado un n%cmero y lo imprime al reves.", 163);
+    printf("\nEntre un n%cmero: ", 163);
     scanf("%i", &number); // Se recibe el dato y se guarda dentro de la variable number
 
-    printf("\n");
     // Llamamos a la función que devuelve el número ingresado pero invertido
-    printf("%i invertido es: %i\n", number, ReverseNumber(number));
+    printf("%i\n", ReverseNumber(number));
     
     //----------------------------------------- Finalización del programa -------------------------------------------
     getchar(); // Consumimos el carácter de nueva línea restante en el buffer

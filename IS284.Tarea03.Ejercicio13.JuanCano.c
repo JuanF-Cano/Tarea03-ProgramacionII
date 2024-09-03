@@ -39,39 +39,45 @@ void evaluateNumbers(int greaterThan150, int major, int minor, int negativeNumbe
     printf("Ingrese un numero(%i): ", count);
     scanf("%i", &number);
 
-    // Si no se han procesado los 75 números, continúa la evaluación.
-    if (count < 75) {
-        // Incrementa el contador si el número es mayor a 150.
-        if (number > 150) {
-            greaterThan150++;
-        }
-        // Actualiza 'major' si el número es el más grande hasta ahora.
-        if (number > major) {
-            major = number;
-        }
-        // Actualiza 'minor' si el número es el más pequeño hasta ahora.
-        if (number < minor) {
-            minor = number;
-        }
-        // Incrementa el contador de números negativos si el número es negativo.
-        if (number < 0) {
-            negativeNumbers++;
-        }
-        // Suma el número positivo a 'avarage' para luego calcular el promedio.
-        if (number > 0) {
-            avarage += number;
-        }
-        // Llama recursivamente a la función con los valores actualizados.
-        evaluateNumbers(greaterThan150, major, minor, negativeNumbers, avarage, count + 1);
-    } else {
-        // Maneja el caso en que no se hayan ingresado números positivos para evitar división por cero.
-        if ((75 - negativeNumbers) > 0) {
-            printf("\nCantidad de n%cmeros Mayores a 150: %i\nN%cmero mayor: %i\nN%cmero menor: %i\nDatos negativos: %i\nPromedio de los n%cmeros positivos: %.2f", 
-            163, greaterThan150, 163, major, 163, minor, negativeNumbers, 163, avarage / (75. - negativeNumbers));
+    // Evaluamos si el número ingresado es 0, en cuyo caso pediremos el número de nuevo
+    if (number == 0) {
+        printf("El n%cmero debe ser diferente de 0.\n", 160);
+        evaluateNumbers(greaterThan150, major, minor, negativeNumbers, avarage, count);
+    } else { // Si el número es diferente de 0, continúa con el programa
+        // Si no se han procesado los 75 números, continúa la evaluación.
+        if (count < 75) {
+            // Incrementa el contador si el número es mayor a 150.
+            if (number > 150) {
+                greaterThan150++;
+            }
+            // Actualiza 'major' si el número es el más grande hasta ahora.
+            if (number > major) {
+                major = number;
+            }
+            // Actualiza 'minor' si el número es el más pequeño hasta ahora.
+            if (number < minor) {
+                minor = number;
+            }
+            // Incrementa el contador de números negativos si el número es negativo.
+            if (number < 0) {
+                negativeNumbers++;
+            }
+            // Suma el número positivo a 'avarage' para luego calcular el promedio.
+            if (number > 0) {
+                avarage += number;
+            }
+            // Llama recursivamente a la función con los valores actualizados.
+            evaluateNumbers(greaterThan150, major, minor, negativeNumbers, avarage, count + 1);
         } else {
-            printf("\nCantidad de n%cmeros Mayores a 150: %i\nN%cmero mayor: %i\nN%cmero menor: %i\nDatos negativos: %i\nNo se ingresaron n%cmeros positivos para calcular el promedio.",
-            163, greaterThan150, 163, major, 163, minor, negativeNumbers, 163);
-        } // Fin else ((75 - negativeNumbers) > 0)
+            // Maneja el caso en que no se hayan ingresado números positivos para evitar división por cero.
+            if ((75 - negativeNumbers) > 0) {
+                printf("\nCantidad de n%cmeros Mayores a 150: %i\nN%cmero mayor: %i\nN%cmero menor: %i\nDatos negativos: %i\nPromedio de los n%cmeros positivos: %.2f", 
+                163, greaterThan150, 163, major, 163, minor, negativeNumbers, 163, avarage / (75. - negativeNumbers));
+            } else {
+                printf("\nCantidad de n%cmeros Mayores a 150: %i\nN%cmero mayor: %i\nN%cmero menor: %i\nDatos negativos: %i\nNo se ingresaron n%cmeros positivos para calcular el promedio.",
+                163, greaterThan150, 163, major, 163, minor, negativeNumbers, 163);
+            } // Fin else ((75 - negativeNumbers) > 0)
+        }
     } // Fin else (count < 75)
 } // Fin función evaluateNumbers
 
@@ -80,7 +86,7 @@ int main() { // Inicio función principal
 
     // Llamado a la función que pide los 72 números, evalúa e imprime la cantidad de mayores a 150, el mayor, el menor, 
     // la cantidad de negativos y el promedio de los positivos
-    evaluateNumbers(0, 0, 0, 0, 0, 1);
+    evaluateNumbers(0, 0, 2000000000, 0, 0, 1);
 
     //----------------------------------------- Finalización del programa -------------------------------------------
     getchar(); // Consumimos el caracter de nueva linea restante en el buffer
