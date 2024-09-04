@@ -14,7 +14,7 @@
 
 - Descripción del programa: Este programa recibe por teclado el valor de x y la cantidad de digitos a sumar en la serie de teylor, e imprime el resultado del logaritmo natural para esa x
 
-    Salvedad: El programa solo funciona si se le ingresan un valor de x positivo no mayor a 100 y un número de k entero positivo no mayor a 30, ya que si no podría haber un desbordamiento de datos por culpa del que el número superaría la capacidad del unsigned long int. De lo contrario no se garantizan resultados 
+    Salvedad: El programa solo funciona si se le ingresan un valor de x positivo no mayor a 2 y un número de k entero positivo no mayor a 30, ya que si no podría haber un desbordamiento de datos por culpa del que el número superaría la capacidad del unsigned long int. De lo contrario no se garantizan resultados 
     Se debe presionar enter para finalizar el programa correctamente
 */
 
