@@ -14,14 +14,14 @@
 
 - Descripción del programa: Este programa recibe por teclado un número entero y devuelve el factorial de ese número
 
-    Salvedad: El programa solo funciona si se le ingresan números enteros positivos y no mayores a 9, ya que si no podría haber un desbordamiento de datos por culpa del que el número superaría la capacidad del unsigned long int. De lo contrario no se garantizan resultados 
+    Salvedad: El programa solo funciona si se le ingresan números enteros positivos y no mayores a 20, ya que si no podría haber un desbordamiento de datos por culpa del que el número superaría la capacidad del unsigned long int. De lo contrario no se garantizan resultados 
     Se debe presionar enter para finalizar el programa correctamente
 */
 
 #include <stdio.h>// Librería que contiene las funciones estándar para entrada y salida de datos
 
-// Inicio función GetFactorial, usada para calcular los términos de la serie de Catalán. Devuelve un entero (El factorial del número ingresado) 
-unsigned long int GetFactorial(unsigned long int n) {
+// Inicio función GetFactorial Devuelve el factorial del número ingresado
+double GetFactorial(long int n) {
     if (n <= 1) { // Inicio condición cota
         return 1; // Devolvemos 1 para los valores de 0! y 1!
     } else {
@@ -38,7 +38,7 @@ int main() {
     scanf("%i", &number);
 
     // Llamamos a la función GetFactorial e imprimimos el resultado del ella con el número ingresado
-    printf("\nEl factorial de %i es %lu", number, GetFactorial(number));    
+    printf("\nEl factorial de %i es %.0lf", number, GetFactorial(number));    
 
     //----------------------------------------- Finalización del programa -------------------------------------------
     getchar(); // Consumimos el caracter de nueva linea restante en el buffer

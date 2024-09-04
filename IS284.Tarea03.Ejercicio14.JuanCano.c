@@ -14,8 +14,7 @@
 
 - Descripción del programa: Este programa imprime las tablas de multiplicar del 1 al 10
 
-    Salvedad: El programa solo funciona si se le ingresan números enteros positivos y no mayores a 9, ya que si no podría haber un desbordamiento de datos por culpa del que el número superaría la capacidad del unsigned long int. De lo contrario no se garantizan resultados 
-    Se debe presionar enter para finalizar el programa correctamente
+    Salvedad: Se debe presionar enter para finalizar el programa correctamente
 */
 
 #include <stdio.h>// Librería que contiene las funciones estándar para entrada y salida de datos
